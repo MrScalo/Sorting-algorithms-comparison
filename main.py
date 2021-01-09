@@ -16,13 +16,36 @@ def create_test_list():
 
 
 #Function for testing the speed of a algorithm
-def test_algorithm(name, algorithm):
+def test_algorithm(name, algorithm, print_sorted):
     start_time = time.time()
-    algorithm(test_list)
+    sorted = algorithm(test_list)
     print(name, "took:", (time.time() - start_time), "seconds")
+    if print_sorted:
+        print(name + ":", sorted)
 
 
 #All sort algorithms
+#Common algorithms
+def quick_sort(list):
+    less = []
+    equal = []
+    greater = []
+    if len(list) > 1:
+        pivot = list[0]
+        for x in list:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+        return quick_sort(less)+equal+quick_sort(greater)  
+    else:  
+        return list
+
+
+#Made by creative people
+#github.com/MrScalo
 def scalo_sort(list):
     change = True
     while change:
@@ -38,10 +61,12 @@ def scalo_sort(list):
     return list
 
 
-#Testing all algorithms
+#Printing some stuff to make it look good
 print("----------")
 print("Creating the test list...")
 test_list = create_test_list()
 print("Testing all algorithms...")
-test_algorithm("Scalo Sort", scalo_sort)
+#test_algorithm(name, algorithm, print_sorted)
+test_algorithm("Quick Sort", quick_sort, False)
+test_algorithm("Scalo Sort", scalo_sort, False)
 print("----------")

@@ -3,7 +3,7 @@ import random
 
 
 #Creating the test list
-#Set amount to the number of numbers yout want to test
+#Set amount to the number of numbers yout want to test (With more than 1000 some algorithms may take a long time!)
 amount = 1000
 
 def create_test_list():
@@ -44,7 +44,7 @@ def quick_sort(list):
         return list
 
 
-#Made by creative people
+#Made by creative people for fun
 #github.com/MrScalo
 def scalo_sort(list):
     change = True
@@ -67,6 +67,8 @@ print("Creating the test list...")
 test_list = create_test_list()
 print("Testing all algorithms...")
 #test_algorithm(name, algorithm, print_sorted)
+print("<< Common algorithms >>")
 test_algorithm("Quick Sort", quick_sort, False)
+print("<< Made by creative people for fun >>")
 test_algorithm("Scalo Sort", scalo_sort, False)
 print("----------")
